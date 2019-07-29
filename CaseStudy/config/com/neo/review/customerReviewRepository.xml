@@ -1,0 +1,15 @@
+<!DOCTYPE gsa-template PUBLIC "-//Art Technology Group, Inc.//DTD General SQL Adapter//EN" "http://www.atg.com/dtds/gsa/gsa_1.0.dtd">
+<gsa-template>
+	<header>
+		<name>Customer Review Repository</name>
+		<author></author>
+		<version>1.0</version>
+	</header>
+  	<item-descriptor name="reviewDetails">
+		<table name="customer_reviews" type="primary" id-column-names="customer_id,product_id">
+			<property name="customerId" data-type="string" column-name="customer_id" />
+			<property name="productId" data-type="string" column-name="product_id"/>
+			<property name="comment" data-type="string" column-name="comment"/>
+		</table> 	
+	</item-descriptor>
+</gsa-template>

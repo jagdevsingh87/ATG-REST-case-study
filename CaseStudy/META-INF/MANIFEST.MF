@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+ATG-Config-Path: config/
+ATG-Required: DCS REST DPS.WebServices DafEar.Admin
+ATG-Class-Path: classes

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gsa-template SYSTEM "dynamosystemresource:/atg/dtds/gsa/gsa_1.0.dtd">
+
+<gsa-template>
+	<item-descriptor name="user">
+	    <table name="user_reviews" id-column-name="id" type="multi">
+	      <property column-name="review" data-type="set" name="reviews" component-item-type="reviewDetails" repository="/com/neo/review/CustomerReviewRepository" />
+	    </table>
+	</item-descriptor>
+</gsa-template>

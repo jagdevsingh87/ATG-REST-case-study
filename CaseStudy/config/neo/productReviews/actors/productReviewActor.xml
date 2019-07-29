@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actor-template default-chain-id="getProductReviewsByCustomer" xsi:noNamespaceSchemaLocation="http://www.atg.com/xsds/actorChain_1.0.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <actor-chain id="getProductReviewsByCustomer" transaction="TX_SUPPORTS">
+	    <component id="getProductReviewsByCustomer" name="/atg/userprofiling/Profile" component-var="profile">
+	      <output id="productReviews" filter-id="customDetail" name="productReviews" value="${profile.dataSource.reviews}" />
+	    </component>	
+    </actor-chain>
+    
+    <actor-chain id="getProductReviewsForProduct" transaction="TX_SUPPORTS">
+	 	  <component id="getProductReviewsForProduct" name="/com/neo/review/tools/ProductReviewTool" method="getProductReviewsForProduct"  
+	 	                                                    method-return-var="productReviews" invoke-method-requires-session-confirmation="false">
+	          <input name="productId" class-name="java.lang.String" value="${param.productId}" index="0"/>
+	          <output id="productReviews" name="productReviews"  filter-id="customDetail" value="${productReviews}" />      
+	      </component>
+	</actor-chain>
+
+	<actor-chain id="addProductReview" transaction="TX_SUPPORTS">
+	 	  <component id="addProductReview" name="/com/neo/review/tools/ProductReviewTool" method="addProductReview"  
+	 	                                                     invoke-method-requires-session-confirmation="false">
+	          <input name="productId" class-name="java.lang.String" value="${param.productId}" index="0"/>
+	          <input name="profileId" class-name="java.lang.String" value="${param.profileId}" index="1"/>
+	          <input name="comments" class-name="java.lang.String" value="${param.comments}" index="2"/>
+	      </component>
+	</actor-chain>
+	
+</actor-template>

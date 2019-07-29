@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bean-filtering SYSTEM "dynamosystemresource:/atg/dtds/beanfilter/beanFiltering_1.0.dtd">
+<bean-filtering>
+
+<repository name="/com/neo/review/CustomerReviewRepository">
+   <item-descriptor name="reviewDetails">
+      <filter id="customDetail" default-include="false">
+        <property hidden="false" name="customerId"/>      
+        <property hidden="false" name="productId"/>
+        <property hidden="false" name="comment"/>
+      </filter>
+   </item-descriptor>
+</repository>
+
+</bean-filtering> 
